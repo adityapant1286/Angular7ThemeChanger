@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "themeSwitcher": {
+    "Angular7ThemeChanger": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/themeSwitcher",
+            "outputPath": "dist/Angular7ThemeChanger",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,12 +27,62 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              {
+                "input": "src/themes/cosmo/cosmo.scss",
+                "lazy": true,
+                "bundleName": "assets/cosmo"
+              },
+              {
+                "input": "src/themes/cyborg/cyborg.scss",
+                "lazy": true,
+                "bundleName": "assets/cyborg"
+              },
+              {
+                "input": "src/themes/darkly/darkly.scss",
+                "lazy": true,
+                "bundleName": "assets/darkly"
+              },
+              {
+                "input": "src/themes/flatly/flatly.scss",
+                "lazy": true,
+                "bundleName": "assets/flatly"
+              },
+              {
+                "input": "src/themes/materia/materia.scss",
+                "lazy": true,
+                "bundleName": "assets/materia"
+              },
+              {
+                "input": "src/themes/pulse/pulse.scss",
+                "lazy": true,
+                "bundleName": "assets/pulse"
+              },
+              {
+                "input": "src/themes/slate/slate.scss",
+                "lazy": true,
+                "bundleName": "assets/slate"
+              },
+              {
+                "input": "src/themes/united/united.scss",
+                "lazy": true,
+                "bundleName": "assets/united"
+              },
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/js/theme-changer.js",
+              "src/js/theme-localStorage.js"
+            ],
+            "extractCss": true,
             "es5BrowserSupport": true
           },
           "configurations": {
+            "dev": {
+              "extractCss": true
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -62,18 +112,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "themeSwitcher:build"
+            "browserTarget": "Angular7ThemeChanger:build"
           },
           "configurations": {
+            "dev": {
+              "browserTarget": "Angular7ThemeChanger:build:dev"
+            },
             "production": {
-              "browserTarget": "themeSwitcher:build:production"
+              "browserTarget": "Angular7ThemeChanger:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "themeSwitcher:build"
+            "browserTarget": "Angular7ThemeChanger:build"
           }
         },
         "test": {
@@ -107,7 +160,7 @@
         }
       }
     },
-    "themeSwitcher-e2e": {
+    "Angular7ThemeChanger-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +169,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "themeSwitcher:serve"
+            "devServerTarget": "Angular7ThemeChanger:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "themeSwitcher:serve:production"
+              "devServerTarget": "Angular7ThemeChanger:serve:production"
             }
           }
         },
@@ -136,5 +189,5 @@
       }
     }
   },
-  "defaultProject": "themeSwitcher"
+  "defaultProject": "Angular7ThemeChanger"
 }

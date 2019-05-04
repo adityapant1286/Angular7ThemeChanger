@@ -1,0 +1,1 @@
+changeTheme(localStorage.getItem('currentTheme'));
